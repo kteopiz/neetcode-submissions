@@ -11,10 +11,8 @@ class Solution:
 
         for r in range(len(s)):
             if s[r] in lastSeen:
-                l = l if lastSeen[s[r]] + 1 < l else lastSeen[s[r]] + 1
-                lastSeen[s[r]] = r
-            else:
-                lastSeen[s[r]] = r
+                l = max(l, lastSeen[s[r]] + 1)
+            lastSeen[s[r]] = r
             res = max(res, r - l + 1)
         return res
             
